@@ -1,0 +1,256 @@
+/* .headerText {
+  font-size: x-large;
+  font-weight: bolder;
+  color: rgb(35, 199, 198);
+}
+
+.addButton {
+  background-color: rgb(35, 199, 198);
+  padding: 7px;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.backgroundIsi {
+  background-color: #f8f8f8;
+}
+
+.margin {
+  padding: 5%;
+}
+
+.cardBody {
+  height: 20px;
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* menentukan children nya ke atas bawah */
+  flex-wrap: wrap;
+  /* supaya biar keatas bawah gitu */
+
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  /* menentukan arah childrennya ke samping */
+  height: 60px;
+  background: #ffffff;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.navbarLeftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+
+}
+
+.navbarRightSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffffff;
+}
+
+.greetings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.username {
+  color: #23C7C6;
+  margin-left: 5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  width: 20%
+    /* untuk ukuran sidebar sebesar 20%, untuk ukuran main content 80% */
+  ;
+  height: 100vh;
+  background: #ffffff
+}
+
+.sidebarItemList {
+  margin-left: 10px;
+  margin-top: 30px
+}
+
+.sidebarItem {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.sidebarIcon {
+  margin-right: 5px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 30px;
+  /* dia akan grow sesuai sisa dari space yang ada */
+  background: #F9F9F9;
+}
+
+.personnalTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #ffffff;
+  /* margin: 35px; */
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.personnalTopLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.personnalTopRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.inputPersonnal {
+  margin-right: 12px;
+}
+
+.personnalList {
+  display: flex;
+  flex-direction: row;
+  background: #F9F9F9;
+  flex: 1;
+  /* margin: 35px; */
+  /* padding: 30px; */
+}
+
+.personnalListItem {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  /* background: crimson; */
+  width: 25%;
+  /* margin: 20px; */
+  /* box-shadow: 0 2px 4px rgba(0,0,0 ,0.5); box shadow urutan : vertikal, horizontal, radius, blur, dan warna */
+}
+
+.personnalListId {
+  background: #ffffff;
+  padding: 10px 10px;
+  border-bottom: 1px solid;
+}
+
+.personnalListContent {
+  background: #ffffff;
+  flex: 1;
+}
+
+.personnalListIdIsi {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  /* height ini sesuai dengan parentnya */
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.personnalId {
+  margin-left: 5px;
+}
+
+.personnalListLeft {
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+}
+
+.personnalListRight {
+  background: #ffffff;
+}
+
+.photo {
+  display: flex;
+  background: #ffffff;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.photo img{
+  height: 100%;
+  width: 100%;
+}
+
+.contentIsi {
+  padding: 10px;
+  height: 100%;
+}
+
+.personnalTxtBesar {
+  font-size: x-large;
+  font-weight: bold;
+  color: rgb(35, 199, 198);
+  line-height: 30px;
+}
+
+.personnalTxtKecil {
+  color: rgb(133, 133, 133);
+}
+
+.addPersonnal {
+  background-color: rgb(35, 199, 198);
+  color: #ffffff;
+  font-size: 18px;
+  border: 1px solid white;
+  padding: 0 18px
+}
+
+.personnalBox {
+  border: 1px solid #F9F9F9;
+  border-radius: 15px;
+  margin-right: 50px;
+}
+
+.personnalBox:last-child {
+  margin-right: 0;
+}
+
+.photoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPagination {
+  display: flex;
+  flex-direction: row;
+}
