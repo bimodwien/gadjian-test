@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser } from '../store/actions/actionUsers'
-import { Row, Col, Container, Nav, Navbar } from 'react-bootstrap'
 import Pagination from '../components/pagination'
 import logo from '../assets/gajianlogo.png'
 import styles from '../assets/styles/style.module.css'
@@ -10,18 +9,32 @@ import styles from '../assets/styles/style.module.css'
 
 export default function Home() {
 
-  const users = useSelector((state) => state.User)
-  const [setUserState] = useState([])
-  const dispatch = useDispatch()
-
+  let users = useSelector((state) => state.User)
   const [currentPage, setCurrentPage] = useState(1)
   const [itemPerPage] = useState(4)
   const [isNextDisabled] = useState(false)
   const [isPrevDisabled] = useState(false)
+
+  //Filter logic
+  const [inputFilter, setInputFilter] = useState({
+    personnel: ''
+  })
+  if(inputFilter) {
+    users = users.filter(user => user.name.first.toLowerCase().includes(inputFilter.personnel.toLowerCase()))
+    console.log(users, "<<<<<user");
+  }
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchUser())
+  }, [dispatch])
+  
+  //Pagination logic
   const indexOfLastItem = (currentPage * itemPerPage)
   const indexOfFirstItem = (indexOfLastItem - itemPerPage)
   const currentItem = users.slice(indexOfFirstItem, indexOfLastItem)
-
+  
+  
   function handleNext() {
     if (indexOfLastItem + 1 < users.length) {
       setCurrentPage(currentPage + 1)
@@ -34,14 +47,10 @@ export default function Home() {
     }
   }
 
-
-  useEffect(() => {
-    dispatch(fetchUser())
-
-    if (users.length > 0) {
-      setUserState(users)
-    }
-  }, [dispatch])
+  function handleFindPersonnel(e) {
+    setInputFilter({ ...inputFilter, [e.target.name]: e.target.value })
+    console.log(inputFilter, '<<<<<< ini input filter');
+  }
 
   return (
     <>
@@ -59,7 +68,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div className={styles.content}>
           <div className={styles.sidebar}>
             <div className={styles.sidebarItemList}>
@@ -77,7 +85,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
           <div className={styles.mainContent}>
             <div className={styles.personnalTop}>
               <div className={styles.personnalTopLeft}>
@@ -85,7 +92,7 @@ export default function Home() {
                 <div className={styles.personnalTxtKecil}>List of all Personnel</div>
               </div>
               <div className={styles.personnalTopRight}>
-                <input type="text" placeholder="find personnel" className={styles.inputPersonnal} />
+                <input type="text" onChange={(e) => handleFindPersonnel(e)} placeholder="find personnel" name="personnel" className={styles.inputPersonnal} />
                 <button className={styles.addPersonnal}>Add Personnel <svg fill="white" height="12px" viewBox="0 0 469.33333 469.33333"
                   width="12px" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -93,14 +100,12 @@ export default function Home() {
                 </svg></button>
               </div>
             </div>
-
             <div className={styles.personnalList}>
               <Pagination users={users} currentItem={currentItem} />
             </div>
             <div className={styles.buttonPagination}>
               <button onClick={() => handlePrev()} disabled={isPrevDisabled}>Previous Page</button>
               <button onClick={() => handleNext()} disabled={isNextDisabled}>Next Page</button>
-
             </div>
           </div>
         </div>
