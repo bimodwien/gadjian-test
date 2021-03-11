@@ -140,15 +140,23 @@ img {
   width: 25%;
 }
 
+.personnalCard {
+  border-radius: 10px;
+}
+
 .personnalListId {
   background: #ffffff;
   padding: 10px 10px;
-  border-bottom: 1px solid;
+  border-bottom: 4px solid #F9F9F9;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .personnalListContent {
   background: #ffffff;
   flex: 1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .personnalListIdIsi {
