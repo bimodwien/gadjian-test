@@ -12,8 +12,8 @@ export default function Home() {
   let users = useSelector((state) => state.User)
   const [currentPage, setCurrentPage] = useState(1)
   const [itemPerPage] = useState(4)
-  const [isNextDisabled] = useState(false)
-  const [isPrevDisabled] = useState(false)
+  const [isNextDisabled, setIsNextDisable] = useState(false)
+  const [isPrevDisabled, setIsPreviousDisable] = useState(false)
 
   //Filter logic
   const [inputFilter, setInputFilter] = useState({
@@ -32,16 +32,18 @@ export default function Home() {
   const indexOfLastItem = (currentPage * itemPerPage)
   const indexOfFirstItem = (indexOfLastItem - itemPerPage)
   const currentItem = users.slice(indexOfFirstItem, indexOfLastItem)
-
+  const lastPage = users.length / itemPerPage
 
   function handleNext() {
     if (indexOfLastItem + 1 < users.length) {
+      setIsNextDisable(false)
       setCurrentPage(currentPage + 1)
     }
   }
 
   function handlePrev() {
     if (currentPage - 1 !== 0) {
+      setIsPreviousDisable(false)
       setCurrentPage(currentPage - 1)
     }
   }
@@ -95,11 +97,11 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.personnalList}>
-              <Pagination users={users} currentItem={currentItem} />
+              <Pagination currentItem={currentItem} />
             </div>
             <div className={styles.buttonPagination}>
-              <button onClick={() => handlePrev()} disabled={isPrevDisabled} className={styles.previousButton}><i className="fas fa-chevron-left"></i> Previous Page</button>
-              <button onClick={() => handleNext()} disabled={isNextDisabled} className={styles.nextButton}>Next Page <i className="fas fa-chevron-right"></i></button>
+              <button onClick={() => handlePrev()} disabled={currentPage === 1 ? true : isPrevDisabled} className={styles.previousButton}><i className="fas fa-chevron-left"></i> Previous Page</button>
+              <button onClick={() => handleNext()} disabled={currentPage === lastPage ? true : isNextDisabled} className={styles.nextButton}>Next Page <i className="fas fa-chevron-right"></i></button>
             </div>
           </div>
         </div>
