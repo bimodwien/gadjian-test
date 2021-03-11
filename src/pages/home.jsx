@@ -70,15 +70,15 @@ export default function Home() {
           <div className={styles.sidebar}>
             <div className={styles.sidebarItemList}>
               <div className={styles.sidebarItem}>
-                <div className={styles.sidebarIcon}><i class="fas fa-home"></i></div>
+                <div className={styles.sidebarIcon}><i className="fas fa-home"></i></div>
                 <div className={styles.sidebarTitle}>Beranda</div>
               </div>
               <div className={styles.sidebarItemActive}>
-                <div className={styles.sidebarIcon}><i class="fas fa-users"></i></div>
+                <div className={styles.sidebarIcon}><i className="fas fa-users"></i></div>
                 <div className={styles.sidebarTitle}>Personnel List</div>
               </div>
               <div className={styles.sidebarItem}>
-                <div className={styles.sidebarIcon}><i class="far fa-calendar-alt"></i></div>
+                <div className={styles.sidebarIcon}><i className="far fa-calendar-alt"></i></div>
                 <div className={styles.sidebarTitle}>Daily Attendance</div>
               </div>
             </div>
@@ -91,15 +91,15 @@ export default function Home() {
               </div>
               <div className={styles.personnalTopRight}>
                 <input type="text" onChange={(e) => handleFindPersonnel(e)} placeholder="Find Personnel" name="personnel" className={styles.inputPersonnal} />
-                <button className={styles.addPersonnal}>Add Personnel <i class="fas fa-plus"></i></button>
+                <button className={styles.addPersonnal}>Add Personnel <i className="fas fa-plus"></i></button>
               </div>
             </div>
             <div className={styles.personnalList}>
               <Pagination users={users} currentItem={currentItem} />
             </div>
             <div className={styles.buttonPagination}>
-              <button onClick={() => handlePrev()} disabled={isPrevDisabled} className={styles.previousButton}><i class="fas fa-chevron-left"></i> Previous Page</button>
-              <button onClick={() => handleNext()} disabled={isNextDisabled} className={styles.nextButton}>Next Page <i class="fas fa-chevron-right"></i></button>
+              <button onClick={() => handlePrev()} disabled={isPrevDisabled} className={styles.previousButton}><i className="fas fa-chevron-left"></i> Previous Page</button>
+              <button onClick={() => handleNext()} disabled={isNextDisabled} className={styles.nextButton}>Next Page <i className="fas fa-chevron-right"></i></button>
             </div>
           </div>
         </div>

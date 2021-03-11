@@ -6,7 +6,7 @@ export default function Pagination({ currentItem }) {
 
   return (
     currentItem.map((itm, i) => (
-      <div className={styles.personnalBox}>
+      <div key={i} className={styles.personnalBox}>
         <div className={styles.personnalListId}>
           <div className={styles.personnalListIdIsi}>
             <div className={styles.personnalListLeft}>
