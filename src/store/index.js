@@ -9,8 +9,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_USER":
       return { ...state, User: action.payload }
-    case "SET_SEARCH":
-      return { ...state, User: action.payload }
     default:
       return state;
 

@@ -1,44 +1,26 @@
-/* .headerText {
-  font-size: x-large;
-  font-weight: bolder;
-  color: rgb(35, 199, 198);
-}
-
-.addButton {
-  background-color: rgb(35, 199, 198);
-  padding: 7px;
-  color: #ffffff;
-  font-weight: bolder;
-}
-
-.backgroundIsi {
-  background-color: #f8f8f8;
-}
-
-.margin {
-  padding: 5%;
-}
-
-.cardBody {
-  height: 20px;
-} */
-
 .container {
   display: flex;
   flex-direction: column;
-  /* menentukan children nya ke atas bawah */
   flex-wrap: wrap;
-  /* supaya biar keatas bawah gitu */
+}
 
+.logo {
+  z-index: 1;
+  height: 100px;
+  width: auto;
+}
+img {
+  height: 100%;
+  width: auto;
 }
 
 .navbar {
   display: flex;
   flex-direction: row;
-  /* menentukan arah childrennya ke samping */
   height: 60px;
   background: #ffffff;
   padding: 10px;
+  margin-top: 8px;
   justify-content: space-between;
 }
 
@@ -81,15 +63,13 @@
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  width: 20%
-    /* untuk ukuran sidebar sebesar 20%, untuk ukuran main content 80% */
-  ;
+  width: 20%;
   height: 100vh;
   background: #ffffff
 }
 
 .sidebarItemList {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 30px
 }
 
@@ -99,8 +79,16 @@
   margin-bottom: 5px;
 }
 
+.sidebarItemActive {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  color: #23C7C6;
+  font-weight: 500;
+}
+
 .sidebarIcon {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .mainContent {
@@ -108,7 +96,6 @@
   flex-direction: column;
   flex: 1;
   padding: 30px;
-  /* dia akan grow sesuai sisa dari space yang ada */
   background: #F9F9F9;
 }
 
@@ -117,7 +104,6 @@
   flex-direction: row;
   justify-content: space-between;
   background: #ffffff;
-  /* margin: 35px; */
   padding: 30px;
   margin-bottom: 50px;
 }
@@ -136,6 +122,8 @@
 
 .inputPersonnal {
   margin-right: 12px;
+  justify-content: center;
+  padding: 0.75rem;
 }
 
 .personnalList {
@@ -143,18 +131,13 @@
   flex-direction: row;
   background: #F9F9F9;
   flex: 1;
-  /* margin: 35px; */
-  /* padding: 30px; */
 }
 
 .personnalListItem {
   display: flex;
   flex-direction: row;
   height: 50px;
-  /* background: crimson; */
   width: 25%;
-  /* margin: 20px; */
-  /* box-shadow: 0 2px 4px rgba(0,0,0 ,0.5); box shadow urutan : vertikal, horizontal, radius, blur, dan warna */
 }
 
 .personnalListId {
@@ -172,7 +155,6 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  /* height ini sesuai dengan parentnya */
   align-items: center;
   justify-content: space-between;
   padding: 5px;
@@ -253,4 +235,21 @@
 .buttonPagination {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.previousButton {
+  border: 0px solid #F9F9F9;
+  margin-top: 30px;
+  margin-right: 180px;
+  background-color: #F9F9F9;
+}
+
+.nextButton {
+  border: 0px solid #F9F9F9;
+  background-color: #F9F9F9;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 60px;
 }

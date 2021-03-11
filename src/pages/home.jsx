@@ -19,22 +19,21 @@ export default function Home() {
   const [inputFilter, setInputFilter] = useState({
     personnel: ''
   })
-  if(inputFilter) {
+  if (inputFilter) {
     users = users.filter(user => user.name.first.toLowerCase().includes(inputFilter.personnel.toLowerCase()))
-    console.log(users, "<<<<<user");
   }
-  
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchUser())
   }, [dispatch])
-  
+
   //Pagination logic
   const indexOfLastItem = (currentPage * itemPerPage)
   const indexOfFirstItem = (indexOfLastItem - itemPerPage)
   const currentItem = users.slice(indexOfFirstItem, indexOfLastItem)
-  
-  
+
+
   function handleNext() {
     if (indexOfLastItem + 1 < users.length) {
       setCurrentPage(currentPage + 1)
@@ -49,7 +48,6 @@ export default function Home() {
 
   function handleFindPersonnel(e) {
     setInputFilter({ ...inputFilter, [e.target.name]: e.target.value })
-    console.log(inputFilter, '<<<<<< ini input filter');
   }
 
   return (
@@ -58,7 +56,7 @@ export default function Home() {
         <div className={styles.navbar}>
           <div className={styles.navbarLeftSide}>
             <div className={styles.logo}>
-              Gadjian
+              <img src={logo} alt="" />
             </div>
           </div>
           <div className={styles.navbarRightSide}>
@@ -72,15 +70,15 @@ export default function Home() {
           <div className={styles.sidebar}>
             <div className={styles.sidebarItemList}>
               <div className={styles.sidebarItem}>
-                <div className={styles.sidebarIcon}>X</div>
+                <div className={styles.sidebarIcon}><i class="fas fa-home"></i></div>
                 <div className={styles.sidebarTitle}>Beranda</div>
               </div>
-              <div className={styles.sidebarItem}>
-                <div className={styles.sidebarIcon}>X</div>
+              <div className={styles.sidebarItemActive}>
+                <div className={styles.sidebarIcon}><i class="fas fa-users"></i></div>
                 <div className={styles.sidebarTitle}>Personnel List</div>
               </div>
               <div className={styles.sidebarItem}>
-                <div className={styles.sidebarIcon}>X</div>
+                <div className={styles.sidebarIcon}><i class="far fa-calendar-alt"></i></div>
                 <div className={styles.sidebarTitle}>Daily Attendance</div>
               </div>
             </div>
@@ -92,20 +90,16 @@ export default function Home() {
                 <div className={styles.personnalTxtKecil}>List of all Personnel</div>
               </div>
               <div className={styles.personnalTopRight}>
-                <input type="text" onChange={(e) => handleFindPersonnel(e)} placeholder="find personnel" name="personnel" className={styles.inputPersonnal} />
-                <button className={styles.addPersonnal}>Add Personnel <svg fill="white" height="12px" viewBox="0 0 469.33333 469.33333"
-                  width="12px" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="m437.332031 192h-160v-160c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32v160h-160c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h160v160c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-160h160c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0" />
-                </svg></button>
+                <input type="text" onChange={(e) => handleFindPersonnel(e)} placeholder="Find Personnel" name="personnel" className={styles.inputPersonnal} />
+                <button className={styles.addPersonnal}>Add Personnel <i class="fas fa-plus"></i></button>
               </div>
             </div>
             <div className={styles.personnalList}>
               <Pagination users={users} currentItem={currentItem} />
             </div>
             <div className={styles.buttonPagination}>
-              <button onClick={() => handlePrev()} disabled={isPrevDisabled}>Previous Page</button>
-              <button onClick={() => handleNext()} disabled={isNextDisabled}>Next Page</button>
+              <button onClick={() => handlePrev()} disabled={isPrevDisabled} className={styles.previousButton}><i class="fas fa-chevron-left"></i> Previous Page</button>
+              <button onClick={() => handleNext()} disabled={isNextDisabled} className={styles.nextButton}>Next Page <i class="fas fa-chevron-right"></i></button>
             </div>
           </div>
         </div>
