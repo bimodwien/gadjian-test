@@ -4,6 +4,7 @@ import { fetchUser } from '../store/actions/actionUsers'
 import Pagination from '../components/pagination'
 import logo from '../assets/gajianlogo.png'
 import styles from '../assets/styles/style.module.css'
+import logo2 from '../assets/face.jpg'
 
 
 
@@ -65,6 +66,9 @@ export default function Home() {
             <div className={styles.greetings}>
               <p>Hello,</p>
               <p className={styles.username}>Gadjian User</p>
+              <div className={styles.avatarContainer}>
+                <img src={logo2} className={styles.avatarImg} alt=""/>
+              </div>
             </div>
           </div>
         </div>
